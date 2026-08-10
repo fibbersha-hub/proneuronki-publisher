@@ -1,0 +1,57 @@
+<title>OAuth code — ПроНейронки Publisher</title>
+<style>
+  :root{
+    --bg:#EEF1F3; --surface:#FFFFFF; --ink:#1A2331; --ink-muted:#57626F;
+    --accent:#2F6F5E; --accent-soft:#E4EEEB; --rule:#D6DCE1;
+  }
+  :root[data-theme="dark"]{
+    --bg:#12161C; --surface:#181D25; --ink:#E7ECEF; --ink-muted:#9AA6B2;
+    --accent:#5FB39C; --accent-soft:#1D2D29; --rule:#2A323C;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#12161C; --surface:#181D25; --ink:#E7ECEF; --ink-muted:#9AA6B2; --accent:#5FB39C; --accent-soft:#1D2D29; --rule:#2A323C; }
+  }
+  :root[data-theme="light"]{
+    --bg:#EEF1F3; --surface:#FFFFFF; --ink:#1A2331; --ink-muted:#57626F; --accent:#2F6F5E; --accent-soft:#E4EEEB; --rule:#D6DCE1;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    background:var(--bg); color:var(--ink); font-family:-apple-system,"Segoe UI",Arial,sans-serif; padding:2rem; }
+  .card{ max-width:560px; width:100%; background:var(--surface); border:1px solid var(--rule); border-radius:8px; padding:2.2rem clamp(1.3rem,5vw,2.6rem); }
+  h1{ font-family: ui-serif, "Iowan Old Style", Georgia, serif; font-size:1.4rem; margin:0 0 0.6rem; }
+  p{ color:var(--ink-muted); margin:0 0 1.2rem; line-height:1.55; }
+  .field{ margin:0 0 1.1rem; }
+  .field label{ display:block; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:0.35rem; }
+  .value{ background:var(--accent-soft); border-radius:6px; padding:0.8rem 1rem; font-family:ui-monospace,"SF Mono",Consolas,monospace;
+    font-size:0.92rem; word-break:break-all; display:flex; justify-content:space-between; align-items:center; gap:0.6rem; }
+  button{ background:var(--accent); color:var(--surface); border:none; border-radius:6px; padding:0.4rem 0.8rem; font-size:0.8rem; cursor:pointer; flex-shrink:0; }
+  button:hover{ opacity:0.9; }
+  .empty{ color:var(--ink-muted); font-style:italic; }
+</style>
+<div class="card">
+  <h1>Код получен</h1>
+  <p>Скопируй значение поля <strong>code</strong> ниже и пришли его в чат — это одноразовый код авторизации.</p>
+  <div class="field">
+    <label>code</label>
+    <div class="value"><span id="code">—</span><button onclick="copyIt('code')">Копировать</button></div>
+  </div>
+  <div class="field">
+    <label>state</label>
+    <div class="value"><span id="state">—</span><button onclick="copyIt('state')">Копировать</button></div>
+  </div>
+</div>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  function fill(id, key){
+    const el = document.getElementById(id);
+    const v = params.get(key);
+    el.textContent = v || '(нет в адресе)';
+    if(!v) el.classList.add('empty');
+  }
+  fill('code','code');
+  fill('state','state');
+  function copyIt(id){
+    const text = document.getElementById(id).textContent;
+    navigator.clipboard.writeText(text).catch(()=>{});
+  }
+</script>

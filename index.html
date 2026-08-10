@@ -1,0 +1,59 @@
+<title>ПроНейронки Publisher</title>
+<style>
+  :root{
+    --bg:#EEF1F3; --surface:#FFFFFF; --ink:#1A2331; --ink-muted:#57626F;
+    --accent:#2F6F5E; --accent-soft:#E4EEEB; --rule:#D6DCE1;
+  }
+  :root[data-theme="dark"]{
+    --bg:#12161C; --surface:#181D25; --ink:#E7ECEF; --ink-muted:#9AA6B2;
+    --accent:#5FB39C; --accent-soft:#1D2D29; --rule:#2A323C;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#12161C; --surface:#181D25; --ink:#E7ECEF; --ink-muted:#9AA6B2; --accent:#5FB39C; --accent-soft:#1D2D29; --rule:#2A323C; }
+  }
+  :root[data-theme="light"]{
+    --bg:#EEF1F3; --surface:#FFFFFF; --ink:#1A2331; --ink-muted:#57626F; --accent:#2F6F5E; --accent-soft:#E4EEEB; --rule:#D6DCE1;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,"Segoe UI",Arial,sans-serif; line-height:1.65; }
+  .page{ max-width:680px; margin:0 auto; padding:5rem 1.5rem 6rem; }
+  .doc{ background:var(--surface); border:1px solid var(--rule); border-radius:4px; padding:3rem clamp(1.5rem,5vw,3.5rem); }
+  .eyebrow{ font-family:ui-monospace,"SF Mono",Consolas,monospace; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin:0 0 0.9rem; }
+  h1{ font-family: ui-serif,"Iowan Old Style",Georgia,serif; font-weight:600; font-size:clamp(1.7rem,4vw,2.3rem); margin:0 0 0.6rem; text-wrap:balance; }
+  p{ margin:0 0 1rem; max-width:62ch; color:var(--ink); }
+  p.lead{ color:var(--ink-muted); font-size:1.05rem; }
+  ul{ margin:0 0 1rem; padding-left:1.3rem; max-width:62ch; }
+  li{ margin:0 0 0.4rem; }
+  a{ color:var(--accent); }
+  .links{ display:flex; gap:1.2rem; flex-wrap:wrap; margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--rule); }
+  .links a{ font-size:0.9rem; text-decoration:none; border-bottom:1px solid var(--accent); }
+</style>
+<div class="page">
+  <article class="doc">
+    <p class="eyebrow">Personal publishing tool</p>
+    <h1>ПроНейронки Publisher</h1>
+    <p class="lead">A small, single-operator tool that publishes one creator's
+    own video content to their own connected accounts.</p>
+
+    <p>ПроНейронки Publisher is not a public product — it's automation
+    built and run by one person to move finished videos from their own
+    production pipeline onto the platforms they publish to, including
+    TikTok, using each platform's official publishing API.</p>
+
+    <p>What it does:</p>
+    <ul>
+      <li>Uploads a finished video (already produced by the operator)
+      to their own connected TikTok account.</li>
+      <li>Sets the title, description, and other metadata the operator
+      writes for that video.</li>
+      <li>Does not interact with, follow, message, or collect data
+      about any other account.</li>
+    </ul>
+
+    <div class="links">
+      <a href="./terms-of-service.html">Terms of Service</a>
+      <a href="./privacy-policy.html">Privacy Policy</a>
+      <a href="mailto:fibber.sha@gmail.com">Contact</a>
+    </div>
+  </article>
+</div>
